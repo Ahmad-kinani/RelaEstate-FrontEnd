@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+  margin-top: -1%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  margin-top: 2%;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.ahmad {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+/* CSS to style the floating button */
+.floating-button {
+  width: 56px; /* Diameter to make it circular */
+  height: 56px; /* Diameter to make it circular */
+  border-radius: 50%; /* Make it circular */
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  background-color: #3460fc;
+  transition: all 0.3s ease;
+  border: none; /* Remove border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect */
+.floating-button:hover {
+  transform: scale(1.1); /* Scale up on hover */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+/* Icon color inside the button */
+.floating-button mat-icon {
+  color: white; /* White icon color */
+}

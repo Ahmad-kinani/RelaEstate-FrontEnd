@@ -1,0 +1,255 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white text-center">Add User</div>
+    <div class="card-body">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  userForm.get('username')?.invalid &&
+                  (userForm.get('username')?.touched ||
+                    userForm.get('username')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('username')?.errors?.['required']">
+                  Username is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="full_name">Full Name</label>
+              <input
+                type="text"
+                id="full_name"
+                formControlName="full_name"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  userForm.get('full_name')?.invalid &&
+                  (userForm.get('full_name')?.touched ||
+                    userForm.get('full_name')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('full_name')?.errors?.['required']">
+                  Full Name is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  userForm.get('email')?.invalid &&
+                  (userForm.get('email')?.touched ||
+                    userForm.get('email')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('email')?.errors?.['required']">
+                  Email is required.
+                </div>
+                <div *ngIf="userForm.get('email')?.errors?.['email']">
+                  Invalid email format.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                formControlName="password"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  userForm.get('password')?.invalid &&
+                  (userForm.get('password')?.touched ||
+                    userForm.get('password')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('password')?.errors?.['required']">
+                  Password is required.
+                </div>
+                <div *ngIf="userForm.get('password')?.errors?.['pattern']">
+                  Password must be at least 8 characters long and include both
+                  upper and lower case letters.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                formControlName="phone"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  userForm.get('phone')?.invalid &&
+                  (userForm.get('phone')?.touched ||
+                    userForm.get('phone')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('phone')?.errors?.['required']">
+                  Phone number is required.
+                </div>
+                <div *ngIf="userForm.get('phone')?.errors?.['pattern']">
+                  Phone number must 6 between 10 digits.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status" formControlName="status" class="form-control">
+                <option value="" disabled>Select Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+              <div
+                *ngIf="
+                  userForm.get('status')?.invalid &&
+                  (userForm.get('status')?.touched ||
+                    userForm.get('status')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('status')?.errors?.['required']">
+                  Status is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="type">Type</label>
+              <select id="type" formControlName="type" class="form-control">
+                <option value="" disabled>Select Type</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+              <div
+                *ngIf="
+                  userForm.get('type')?.invalid &&
+                  (userForm.get('type')?.touched || userForm.get('type')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('type')?.errors?.['required']">
+                  Type is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" formControlName="gender" class="form-control">
+                <option value="" disabled>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              <div
+                *ngIf="
+                  userForm.get('gender')?.invalid &&
+                  (userForm.get('gender')?.touched ||
+                    userForm.get('gender')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('gender')?.errors?.['required']">
+                  Gender is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="id_number">ID Number</label>
+              <input
+                type="text"
+                id="id_number"
+                formControlName="id_number"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  userForm.get('id_number')?.invalid &&
+                  (userForm.get('id_number')?.touched ||
+                    userForm.get('id_number')?.dirty)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="userForm.get('id_number')?.errors?.['required']">
+                  ID Number is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="photo">Profile Image</label>
+              <input
+                type="file"
+                id="photo"
+                formControlName="photo"
+                (change)="onFileChange($event)"
+                class="form-control"
+                accept="image/*"
+              />
+              <!-- Optionally show a message if a file is selected -->
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary circular-button mt-4"
+          (click)="onSubmit()"
+          [disabled]="userForm.invalid"
+        >
+          <mat-icon>save</mat-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

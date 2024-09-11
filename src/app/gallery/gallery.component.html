@@ -1,0 +1,10 @@
+<div id="slider">
+  <figure [@slideAnimation]>
+    <img
+      *ngFor="let image of background_images"
+      class="background-image"
+      src="{{ image.src }}"
+      alt
+    />
+  </figure>
+</div>

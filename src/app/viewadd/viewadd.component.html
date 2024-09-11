@@ -1,0 +1,85 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white text-center">
+      User Details
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2 text-center">
+          <img
+            [src]="user.photo"
+            class="img-fluid rounded-circle profile-photo"
+            alt="User Photo"
+          />
+        </div>
+        <div class="col-md-10">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th scope="row">Username</th>
+                <td>{{ user.username }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Full Name</th>
+                <td>{{ user.full_name }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Email</th>
+                <td>{{ user.email }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Phone</th>
+                <td>{{ user.phone }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Status</th>
+                <td>{{ user.status }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Type</th>
+                <td>{{ user.type }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Gender</th>
+                <td>{{ user.gender }}</td>
+              </tr>
+              <tr>
+                <th scope="row">ID_Number</th>
+                <td>{{ user.id_number }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="floating-buttons-container">
+            <button
+              class="floating-button"
+              mat-fab
+              color="primary"
+              aria-label="Add user"
+              routerLink="/adduser"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+            <button
+              class="floating-button"
+              mat-fab
+              color="primary"
+              aria-label="Add user"
+              (click)="navigateToEditUser()"
+            >
+              <mat-icon>edite</mat-icon>
+            </button>
+            <button
+              class="floating-button"
+              mat-fab
+              color="primary"
+              aria-label="Delete user"
+              (click)="deleteUser()"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
