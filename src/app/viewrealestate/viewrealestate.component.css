@@ -1,0 +1,33 @@
+/* CSS to style the floating button */
+.floating-buttons-container {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Adjust spacing between buttons */
+}
+
+.floating-button {
+  width: 56px; /* Diameter to make it circular */
+  height: 56px; /* Diameter to make it circular */
+  border-radius: 50%; /* Make it circular */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0);
+  background-color: #3460fc;
+  transition: all 0.3s ease;
+  border: none; /* Remove border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect */
+.floating-button:hover {
+  transform: scale(1.1); /* Scale up on hover */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+/* Icon color inside the button */
+.floating-button mat-icon {
+  color: white; /* White icon color */
+}

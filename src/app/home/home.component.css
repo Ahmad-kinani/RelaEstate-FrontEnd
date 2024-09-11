@@ -1,0 +1,39 @@
+.toolbar {
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.app-name {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.right-section a.nav-link {
+  color: black;
+  text-transform: none;
+  font-weight: bold;
+  margin-left: 20px;
+  padding-right: 40px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.right-section a.nav-link:hover {
+  color: red;
+  transform: scale(1.1);
+}

@@ -1,0 +1,48 @@
+<div class="testbox">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="username" placeholder="Name" required />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-error *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        <span *ngIf="name?.errors?.['required']">Name is required.</span>
+        <span *ngIf="name?.errors?.['minlength']"
+          >Name must be at least 4 characters long.</span
+        >
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        required
+      />
+      <mat-icon matSuffix>lock</mat-icon>
+      <mat-error
+        *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+      >
+        <span *ngIf="password?.errors?.['required']"
+          >Password is required.</span
+        >
+        <span *ngIf="password?.errors?.['minlength']"
+          >Password must be at least 6 characters long.</span
+        >
+        <span *ngIf="password?.errors?.['pattern']"
+          >Password must contain both uppercase and lowercase letters.</span
+        >
+      </mat-error>
+    </mat-form-field>
+
+    <p>
+      By clicking Login, you agree on our
+      <a href="#">terms and condition</a>.
+    </p>
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
+      Login
+    </button>
+  </form>
+</div>

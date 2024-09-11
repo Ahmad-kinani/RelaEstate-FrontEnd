@@ -1,0 +1,32 @@
+.mat-dialog-content {
+  text-align: center;
+}
+
+.circle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-size: 48px;
+  margin: 0 auto 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.mat-dialog-actions button {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}

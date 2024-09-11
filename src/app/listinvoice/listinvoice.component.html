@@ -1,0 +1,94 @@
+<div class="ahmad">
+  <mat-form-field>
+    <mat-label>Filter customer</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Mia"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <!-- ID Column -->
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef>Photo</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          <img
+            [src]="
+              row.customer.photo
+                ? row.customer.photo
+                : (!row.customer.photo || row.customer.photo == '') &&
+                  row.gender == 'male'
+                ? '../../assets/avater man.png'
+                : '../../assets/avater girl.png'
+            "
+            alt="Photo"
+            style="width: 40px; height: 40px; border-radius: 50%"
+          />
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Customer</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row?.customer.full_name }}
+        </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Type</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row.type }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row.date | date : "mediumDate" }}
+        </td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Method payment</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row.method_payment.name }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="id_number">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row.price | currency : row.currency.symbol }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row.customer.gender }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef class="fixed-width">Address</th>
+        <td mat-cell *matCellDef="let row" (click)="navigateToViewAdd(row)">
+          {{ row.real_estate.address }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,359 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0" style="text-align: center">Add New Real Estate</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="realEstateForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <!-- Address -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="address">Address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    formControlName="address"
+                    class="form-control"
+                    placeholder="Enter address"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('address')?.touched &&
+                      realEstateForm.get('address')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Address is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Type -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="type">Type</label>
+                  <input
+                    type="text"
+                    id="type"
+                    formControlName="type"
+                    class="form-control"
+                    placeholder="Enter type"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('type')?.touched &&
+                      realEstateForm.get('type')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Type is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Price -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="price">Price</label>
+                  <input
+                    type="number"
+                    id="price"
+                    formControlName="price"
+                    class="form-control"
+                    placeholder="Enter price"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('price')?.touched &&
+                      realEstateForm.get('price')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Price is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Details -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="details">Details</label>
+                  <textarea
+                    id="details"
+                    formControlName="details"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Enter details"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Garage -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="garage">Garage</label>
+                  <input
+                    type="text"
+                    id="garage"
+                    formControlName="garage"
+                    class="form-control"
+                    placeholder="Enter garage details"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('garage')?.touched &&
+                      realEstateForm.get('garage')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Garage is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="section">Section</label>
+                  <input
+                    type="text"
+                    id="section"
+                    formControlName="section"
+                    class="form-control"
+                    placeholder="Enter section"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('section')?.touched &&
+                      realEstateForm.get('section')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Section is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Property -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="property">Property</label>
+                  <input
+                    type="text"
+                    id="property"
+                    formControlName="property"
+                    class="form-control"
+                    placeholder="Enter property type"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('property')?.touched &&
+                      realEstateForm.get('property')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Property is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Balcony -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="balcony">Balcony</label>
+                  <input
+                    type="text"
+                    id="balcony"
+                    formControlName="balcony"
+                    class="form-control"
+                    placeholder="Enter balcony details"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('balcony')?.touched &&
+                      realEstateForm.get('balcony')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Balcony is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Furniture -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="furniture">Furniture</label>
+                  <input
+                    type="text"
+                    id="furniture"
+                    formControlName="furniture"
+                    class="form-control"
+                    placeholder="Enter furniture details"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('furniture')?.touched &&
+                      realEstateForm.get('furniture')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Furniture is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Status -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="status">Status</label>
+                  <select
+                    id="status"
+                    formControlName="status"
+                    class="form-select"
+                  >
+                    <option
+                      *ngFor="let status of statusOptions"
+                      [value]="status"
+                    >
+                      {{ status }}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      realEstateForm.get('status')?.touched &&
+                      realEstateForm.get('status')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Status is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lock Date -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="lock_date">Lock Date</label>
+                  <input
+                    type="date"
+                    id="lock_date"
+                    formControlName="lock_date"
+                    class="form-control"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('lock_date')?.touched &&
+                      realEstateForm.get('lock_date')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Lock Date is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Months -->
+              <div
+                class="col-md-4"
+                *ngIf="selectedStatus !== 'sold' && selectedStatus !== 'rented'"
+              >
+                <div class="form-group mb-3">
+                  <label for="months">Months</label>
+                  <input
+                    type="number"
+                    id="months"
+                    formControlName="months"
+                    class="form-control"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('months')?.touched &&
+                      realEstateForm.get('months')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Number of months is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Currency ID -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="currency_id">Currency</label>
+                  <select
+                    id="currency_id"
+                    formControlName="currency_id"
+                    class="form-control"
+                  >
+                    <option value="" disabled>Select Currency</option>
+                    <option
+                      *ngFor="let currency of currencies"
+                      [value]="currency.id"
+                    >
+                      {{ currency.name }} ({{ currency.symbol }})
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      realEstateForm.get('currency_id')?.touched &&
+                      realEstateForm.get('currency_id')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Currency is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Photos -->
+              <div class="col-md-4">
+                <div class="form-group mb-3">
+                  <label for="photos">Photos</label>
+                  <input
+                    type="file"
+                    id="photos"
+                    (change)="onFileChange($event)"
+                    multiple
+                    formControlName="photos"
+                    class="form-control"
+                  />
+                  <div
+                    *ngIf="
+                      realEstateForm.get('photos')?.touched &&
+                      realEstateForm.get('photos')?.invalid
+                    "
+                    class="text-danger"
+                  >
+                    Photos are required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="realEstateForm.invalid"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
